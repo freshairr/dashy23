@@ -1,0 +1,456 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap');
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html, body {
+  font-family: 'Open sans', sans-serif;
+  line-height: 1.4;
+  color: black;
+  /* background-color: red; */
+}
+
+ul {
+  list-style: none;
+}
+
+/* Navbar */
+.navbar {
+  width: 100%;
+  height: auto;
+  background-color: white;
+  padding: 20px;
+  box-shadow: 0 1px 3px rgb(0 0 0 / 10%), 0 2px 2px rgb(0 0 0 / 6%),
+  0 0 2px rgb(0 0 0 / 7%);
+}
+
+.navbar-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.navbar ul {
+  display: flex;
+  align-items: center;
+}
+
+.navbar li {
+  margin: 0 15px;
+  font-weight: bold;
+}
+
+.navbar a {
+  color: black;
+  text-decoration: none;
+}
+
+.navbar-nav-left {
+  text-transform: uppercase;
+  flex: 1;
+  margin-left: 20px;
+}
+
+.navbar-nav-right li:first-child a {
+  display: flex;
+  align-items: center;
+}
+
+.navbar-nav-right li:nth-child(2) {
+  margin: 0 5px;
+}
+
+.footer-container {
+  width: 100%;
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: 0 30px 30px;
+}
+
+/* Component Boxes */
+.box {
+  /* margin-bottom: 10px; */
+}
+
+.box-text {
+  max-width: 500px;
+  text-align: center;
+  justify-self: center;
+  padding: 20px 0;
+  margin: 0 auto;
+}
+
+/* Buttons */
+.btn {
+  cursor: pointer;
+  display: inline-block;
+  background: none;
+  border: 1px black solid;
+  border-radius: 50px;
+  padding: 7px 16px;
+  line-height: 1.2;
+  text-align: center;
+  text-decoration: none;
+}
+
+.btn-dark-outline {
+  border-color: black;
+  color: black;
+}
+
+
+.btn-dark-outline:hover,
+.btn-light-outline:hover {
+    background-color: rgba(0,0,0,0.06)
+}
+
+.btn-light-outline {
+    border-color: white;
+    color: white;
+}
+
+.btn-dark {
+    background-color: black;
+    color: white;
+}
+
+.btn-dark:hover {
+    background-color: #333;
+}
+
+/* Hamburger Menu */
+.hamburger-menu-btn {
+  cursor: pointer;
+  width: 24px;
+  height: 24px;
+  position: relative;
+  background: none;
+  border: none;
+  z-index: 10;
+  transition: all 0.25s;
+  display: none;
+}
+
+.hamburger-top,
+.hamburger-middle,
+.hamburger-bottom {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 24px;
+  height: 2px;
+  background: black;
+  transform: rotate(0);
+  transition: all 0.5s;
+}
+
+.hamburger-middle {
+  transform: translateY(7px);
+}
+
+.hamburger-bottom {
+  transform: translateY(14px)
+}
+
+.open .hamburger-top {
+  transform: rotate(45deg) translateY(6px) translateX(6px);
+}
+
+.open .hamburger-middle {
+  display: none;
+}
+
+.open .hamburger-bottom {
+  transform: rotate(-45deg) translateY(6px) translateX(-6px);
+}
+
+/* mobile menu */
+.mobile-menu {
+  position: fixed;
+  top: 75px;
+  right: 0;
+  background-color: white;
+  width: 50%;
+  height: 100%;
+  padding: 30px;
+  box-shadow: 
+    inset 0 4px 3px -3px rgb(0 0 0 / 10%),
+    inset 0 4px 2px -2px rgb(0 0 0 / 7%);
+  transition: all 0.3s;
+}
+
+.mobile-menu img {
+  width: 20px;
+  height: 20px;
+  margin-right: 10px;
+}
+
+.mobile-menu ul {
+  line-height: 3;
+  border-bottom: #777 solid 1px;
+  padding-bottom: 10px;
+  margin-bottom: 30px;
+}
+
+.mobile-menu a {
+  text-decoration: none;
+  font-size: 20px;
+}
+
+.mobile-menu a:hover {
+  color: var(--color-primary)
+}
+
+.mobile-menu div {
+  margin-top: 20px;
+}
+
+.mobile-menu div a {
+  display: flex;
+  align-items: center;
+  font-size: 16px;
+}
+
+.hidden {
+  transform: translateX(100%);
+}
+
+.no-scroll {
+  overflow: hidden;
+}
+
+/* Set hamburger menu to display only at certain widths */
+@media(max-width: 768px) {
+  .hamburger-menu-btn {
+      display: block;
+  }
+  .grid-col-2 {
+      grid-template-columns: 1fr;
+  }
+  /* sets the image first when in repsonsive column mode */
+  .grid-reversed :first-child{
+      order:0
+  }
+  /* makes logo smaller */
+  .navbar-brand img {
+      width: 40px;
+      height: 40px;
+  }
+  /* hides navbar links */
+  .navbar .navbar-nav-left,
+  .navbar .navbar-nav-right {
+      display: none;
+  }
+  .footer {
+      text-align: center;
+  }
+}
+
+/* creates white space if > 1440 */
+@media(min-width: 1140px) {
+  .box {
+      max-width: 1440px;
+      margin-right: auto;
+      margin-left: auto;
+  }
+  .divider {
+      max-width: 90%;
+  }
+}
+
+.container-box {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  /* flex-wrap: wrap; */
+  /* justify-content: space-around;
+  gap: 10px;
+  flex-shrink: 1; */
+  
+}
+
+/* container for widget cards */
+.box-inner {
+  /* display: flex;
+  flex: 1 33%; */
+  max-width: 400px;
+  /* gap: 10px;
+  flex-grow: 2; */
+}
+
+/*weather component / "body" */
+.weather {
+	/* background: linear-gradient(90deg, #754d8b 0%, #4e5992 100%); */
+  /* width: 50%; */
+  /* height: 100%; */
+  /* flex-direction: column;
+  justify-content: center;
+  align-content: space-around; */
+  color: #fff;
+  margin: 10px;
+
+  /* margin: auto;*/
+} 
+
+/* widget container for data */
+.weather--forecast {
+display: flex;
+flex-flow: row wrap;
+justify-content: space-around;
+align-items: center;
+border-radius: 15px;
+background-color: #2e3336;
+margin: 1em 2em;
+color: #c5cdcf;
+}
+
+/* Widget 4 Quarter Division here */
+.top-left {
+  height: 60%;
+  width: 50%;
+  /* background-color:red; */
+}
+
+.top-right {
+  height: 60%;
+  width: 50%;
+  /* background-color: blue; */
+
+}
+
+.bottom-left {
+  height: 40%;
+  width: 45%;
+  /* background-color:orange; */
+
+}
+
+.bottom-right {
+  height: 40%;
+  width: 50%;
+  /* background-color: brown; */
+
+}
+
+h1,
+h2,
+h3,
+p {
+  margin: 0;
+  padding: 0;
+}
+
+.weather--city, .weather--time, .weather--state {
+  font-weight: 400;
+  font-size: 12px;
+  margin-top: 8px;
+}
+
+/* Horizontal-Half-divider */
+.horizontal-half-divider {
+  width: 100%;
+  height: 1px;
+  background-color: #f0f8fa;
+}
+
+.vertical-half-divider {
+  width: 1px;
+  height: 67px;
+  background-color: #f0f8fa;
+}
+
+.button {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 5px;
+}
+
+
+/* "get weather" button */
+.weather--button {
+  width: 50%;
+}
+
+/* ***************************************** */
+.train {
+  /*background: linear-gradient(to bottom, #4286f4, #373B44); */
+  /* width: 50%; */
+  /* height: 100%; */
+  /* display: flex; */
+  /* flex-direction: column; */
+  /* justify-content: center; */
+  /* align-content: space-around; */
+  color: #fff;
+  margin: 10px;
+  /* margin: auto; */
+}
+
+/* ***************************************** */
+
+/* app.js container */
+.todo {
+  /* width: 50%; */
+  margin: 10px;
+  }
+
+/* Card component w/ task list content */
+.tasks {
+  /* height: 100%; */
+	/* min-width: 400px; */
+	/* margin: 5px auto;
+  padding: 15px;
+  background: #fff;
+	box-shadow: 0 0 27px #ccc;
+  border-radius: 5px;*/
+  /* margin: auto; */
+} 
+
+input {
+  width: 100%;
+}
+
+.tasks--items {
+  list-style: none;
+  border-bottom: 1px solid #ddd;
+	padding: 10px 0;
+}
+
+.completed {
+  text-decoration: line-through;
+}
+
+.notcompleted {
+  color: red;
+}
+
+.tasks--del {
+  margin-left: 10px;
+  background-color: transparent;
+  background-repeat: no-repeat;
+  border: none;
+  cursor: pointer;
+  overflow: hidden;
+  outline: none;
+}
+
+.addtask {
+  /* background-color: transparent;
+  background-repeat: no-repeat; */
+  border: 1px;
+  cursor: pointer;
+  overflow: hidden;
+  /* outline: 1px solid black; */
+}
+
+/* "backend connected to react!" */
+.App {
+  margin: 10px;
+}
+
+
+.footer-container {
+  margin: 10px;
+}
